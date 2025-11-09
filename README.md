@@ -7,7 +7,7 @@ Built with **Node.js**, **Discord.js v15**, and Google Search API integration.
 
 ## Demo
 
-[/tidalsearch in action](guide/photos/dltidal.gif)
+![/tidalsearch in action](guide/photos/dltidal.gif)
 
 ---
 
