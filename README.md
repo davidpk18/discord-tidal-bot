@@ -5,6 +5,12 @@ Built with **Node.js**, **Discord.js v15**, and Google Search API integration.
 
 ---
 
+## Demo
+
+[/tidalsearch in action](guide/photos/dltidal.gif)
+
+---
+
 ## 🚀 Features
 
 - `/tidal <url>` — Download directly from a Tidal link  
