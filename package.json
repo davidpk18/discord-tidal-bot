@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index2.js",
+    "deploy": "node deploy-commands.js",
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "keywords": [],
   "author": "",
@@ -15,9 +17,6 @@
     "dotenv": "^17.2.3",
     "fetch": "^1.1.0",
     "node-fetch": "^2.7.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
   }
-}
-"scripts": {
-  "test": "jest"
 }
