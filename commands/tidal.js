@@ -1,6 +1,7 @@
+require('dotenv').config();
 const { SlashCommandBuilder } = require('discord.js');
 const { spawn } = require('child_process');
-
+const tidalPath = process.env.TIDAL_DL_NG_PROCESS_PATH || 'tidal-dl-ng';
 let downloadQueue = [];
 let isDownloading = false;
 let currentDownload = null; // { interaction, url, user, process }
@@ -15,13 +16,16 @@ async function startNextDownload() {
     const { interaction, url, user } = current;
     const message = await interaction.followUp(`🎵 Starting download for: ${url}`);
 
-    const process = spawn('/home/dave/.local/bin/tidal-dl-ng', ['dl', url]);
-    currentDownload.process = process;
+    const tidalPath = process.env.TIDAL_DL_NG_PROCESS_PATH || 'tidal-dl-ng';
+    const child = spawn(tidalPath, ['dl', url]);
+    currentDownload.process = child;
+
+
 
     let outputBuffer = '';
     let lastEdit = Date.now();
 
-    process.stdout.on('data', async (data) => {
+    child.stdout.on('data', async (data) => {
         outputBuffer += data.toString();
         if (Date.now() - lastEdit > 3000) {
             const cleanOutput = outputBuffer.split('\n').slice(-8).join('\n');
@@ -34,9 +38,9 @@ async function startNextDownload() {
         }
     });
 
-    process.stderr.on('data', (data) => console.error(`stderr: ${data}`));
+    child.stderr.on('data', (data) => console.error(`stderr: ${data}`));
 
-    process.on('close', async (code) => {
+    child.on('close', async (code) => {
         if (code === 0) {
             await message.edit(`✅ Finished downloading: ${url}`);
         } else {
