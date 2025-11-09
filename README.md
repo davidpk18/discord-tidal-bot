@@ -57,7 +57,7 @@ CLIENT_ID=your_discord_bot_client_id
 GUILD_ID=your_test_server_id
 GOOGLE_CSE_ID=your_google_cse_id
 GOOGLE_API_KEY=your_google_api_key
-TIDAL_DL_NG_PROCESS_PATH=<path_to_process>
+TIDAL_DL_NG_PROCESS_PATH=path_to_process
 ```
 
 ### 5. Deploy and start program:
