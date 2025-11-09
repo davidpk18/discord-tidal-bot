@@ -17,7 +17,7 @@ Built with **Node.js**, **Discord.js v15**, and Google Search API integration.
 ---
 
 ## 🧩 Prerequisites
-- *[Install of tidal-dl-ng](https://github.com/exislow/tidal-dl-ng)*
+- **[Install of tidal-dl-ng](https://github.com/exislow/tidal-dl-ng)**
 - **FFMPEG**
 - **Node.js v18+**
 - **npm**
