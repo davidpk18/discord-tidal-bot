@@ -7,7 +7,9 @@ Built with **Node.js**, **Discord.js v15**, and Google Search API integration.
 
 ## Demo
 
-![/tidalsearch in action](guide/photos/dltidal.gif)
+<p align="center">
+  <img src="guide/photos/dltidal.gif" alt="/tidalsearch in action" width="300"/>
+</p>
 
 ---
 
