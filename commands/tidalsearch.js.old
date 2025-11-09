@@ -1,0 +1,78 @@
+const {
+  SlashCommandBuilder,
+  ActionRowBuilder,
+  StringSelectMenuBuilder,
+  EmbedBuilder,
+} = require('discord.js');
+const { googleTidalSearch } = require('./googleSearch');
+const { fetch } = require('undici');
+const searchResults = new Map(); // user.id → results[]
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName('tidalsearch')
+    .setDescription('Search Tidal content via Google (album/track/playlist)')
+    .addStringOption(option =>
+      option
+        .setName('query')
+        .setDescription('What to search for on Tidal')
+        .setRequired(true)
+    ),
+
+  async execute(interaction) {
+    await interaction.deferReply();
+    const query = interaction.options.getString('query');
+
+    try {
+      const results = await googleTidalSearch(query, 5);
+      if (!results.length)
+        return interaction.editReply('❌ No results found on Tidal.');
+
+      // Save results in memory for this user
+      searchResults.set(interaction.user.id, results);
+
+      // Build menu
+      const options = results.map((r, i) => ({
+        label: r.title.substring(0, 100),
+        description: `${r.type} — ${r.link.replace('https://tidal.com/', '')}`.substring(0, 100),
+        value: i.toString(),
+      }));
+
+      const row = new ActionRowBuilder().addComponents(
+        new StringSelectMenuBuilder()
+          .setCustomId('tidal_google_select')
+          .setPlaceholder('Select which Tidal item to download')
+          .addOptions(options)
+      );
+
+      const embed = new EmbedBuilder()
+        .setTitle('🎧 Tidal Search Results')
+        .setDescription(
+          results
+            .map(
+              (r, i) =>
+                `**${i + 1}.** [${r.title}](${r.link})\n*Type:* ${r.type}`
+            )
+            .join('\n\n')
+        )
+        .setColor('#00FFFF');
+
+      await interaction.editReply({
+        embeds: [embed],
+        components: [row],
+      });
+    } catch (err) {
+      console.error('tidalsearch error:', err);
+      await interaction.editReply('⚠️ Error searching Tidal.');
+    }
+  },
+
+  // Helper so index.js can access stored results
+  getSearchResults(userId) {
+    return searchResults.get(userId);
+  },
+  clearSearchResults(userId) {
+    searchResults.delete(userId);
+  },
+};
+
