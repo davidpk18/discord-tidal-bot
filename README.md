@@ -65,5 +65,5 @@ TIDAL_DL_NG_PROCESS_PATH=<path_to_process>
 ```bash
 node deploy-commands.js
 
-node index2.js
+node index.js
 ```
