@@ -1,6 +1,6 @@
 # 🎧 Discord Tidal Downloader Bot
 
-A modern Discord bot that lets users **search for and download Tidal tracks, albums, and playlists** directly from chat.  
+A modern Discord bot that lets users *search for and download Tidal tracks, albums, and playlists* remotely **to the owner's database**.  
 Built with **Node.js**, **Discord.js v15**, and Google Search API integration.
 
 ---
