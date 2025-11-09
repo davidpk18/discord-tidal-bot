@@ -29,7 +29,7 @@ Built with **Node.js**, **Discord.js v15**, and Google Search API integration.
 
 ## ⚙️ Install:
 ### 1️. [Install TIDAL-DL-NG](https://github.com/exislow/tidal-dl-ng) login with your credentials, and configure as needed (ffmpeg). Must have an active subscription to [Tidal](https://tidal.com/).
-**Note the path of tidal-dl-ng, you'll need it for the .env. Command on Ubuntu:
+**Note the path of tidal-dl-ng, you'll need it for the .env. Command on Ubuntu:*
 ```bash
 which tidal-dl-ng
 ```
