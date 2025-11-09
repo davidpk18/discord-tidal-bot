@@ -67,8 +67,8 @@ node deploy-commands.js
 
 node index.js
 ```
+## GOOGLE CSE AND API
 
-#GOOGLE CSE AND API
 ![Client ID for .env](guide/photos/googlecse.png)
 
 ![Filtering Suggestions](guide/photos/googlecsefilter.png)
