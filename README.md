@@ -69,11 +69,11 @@ node index.js
 ```
 
 #GOOGLE CSE AND API
-![Client ID for .env](guide/photos/googlecse.png "CSE Client ID")
+![Client ID for .env](guide/photos/googlecse.png)
 
-![Filtering Suggestions](guide/photos/googlecsefilter.png "CSE Filters")
+![Filtering Suggestions](guide/photos/googlecsefilter.png)
 
-![CSE Redirect to API](guide/photos/api-page-redirect-on-cse-page.png) "Bottom of CSE Page")
+![CSE Redirect to API](guide/photos/api-page-redirect-on-cse-page.png)
 
-![Google API for .env](guide/photos/apilocation.png) "Press here for API key")
+![Google API for .env](guide/photos/apilocation.png)
 
