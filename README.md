@@ -23,7 +23,7 @@ Built with **Node.js**, **Discord.js v15**, and Google Search API integration.
 - **npm**
 - A registered **Discord bot token**
 - [Register a Custom Search Engine](https://programmablesearchengine.google.com/controlpanel/create) and client ID
-- A **Google API key** for Custom Search JSON API
+- [A **Google API key** for Custom Search Engine](https://developers.google.com/custom-search/v1/introduction)
 
 ---
 
@@ -67,3 +67,10 @@ node deploy-commands.js
 
 node index.js
 ```
+
+#GOOGLE CSE AND API
+![Client ID for .env]([assets/preview.png](guide/photos/googlecse.png "CSE Client ID")
+![Filtering Suggestions](guide/photos/googlecsefilter.png "CSE Filters")
+![CSE Redirect to API]((guide/photos/api-page-redirect-on-cse-page.png) "Bottom of CSE Page")
+![Google API for .env]((guide/photos/apilocation.png) "Press here for API key")
+
